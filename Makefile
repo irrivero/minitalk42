@@ -1,41 +1,28 @@
-SRCS = client.c server.c
-
-OBJS := $(SRCS:%.c=%.o)
-
+NAME = minitalk
+SERVER = server
+CLIENT = client
 CC = cc
+LIB = ./helpers.c
 CFLAGS = -Wall -Wextra -Werror
-RM = rm -f
 
-all: ${NAME}
+all: $(SERVER) $(CLIENT)
 
-%.o: %.c
-	${CC} ${CFLAGS} -Ilibft -Iprintf -c $? -o $@
+$(NAME): all
 
-${NAME}: server client
+$(SERVER):
+	$(CC) $(CFLAGS) server.c $(LIB) -o $(SERVER)
 
-server: server.o
-	@make -C libft
-	@make -C printf
-	${CC} ${CFLAGS} $? -Llibft -lft -Lprintf -lfprintf -o server
-
-client: client.o
-	@make -C libft
-	@make -C printf
-	${CC} ${CFLAGS} $? -Llibft -lft -Lprintf -lfprintf -o client
-
-libft:
-	make -C libft
-
-printf:
-	make -C printf
+$(CLIENT):
+	$(CC) $(CFLAGS) client.c $(LIB) -o $(CLIENT)
 
 clean:
-	make clean -C libft
-	make clean -C printf
-	${RM} ${OBJS}
+	rm -f $(SERVER) $(CLIENT)
 
 fclean: clean
-	${RM} server client
+
+re: fclean all
+
+.PHONY: all clean fclean re
 
 re: fclean all
 

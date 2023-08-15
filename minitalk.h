@@ -17,4 +17,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+void	ft_putnbr(int n);
+char	*ft_itoa_pid(int n);
+char	*ft_to_binary(unsigned char c);
+int		ft_atoi(char *ptr);
+int		ft_strlen(char *s);
+
 #endif

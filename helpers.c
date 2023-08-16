@@ -6,12 +6,13 @@
 /*   By: irivero- <irivero-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 16:33:44 by irivero-          #+#    #+#             */
-/*   Updated: 2023/08/15 17:28:37 by irivero-         ###   ########.fr       */
+/*   Updated: 2023/08/16 16:24:47 by irivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
+// prints an integer to the standard output by recursively printing each digit
 void	ft_putnbr(int n)
 {
 	char	c;
@@ -29,6 +30,7 @@ void	ft_putnbr(int n)
 	}
 }
 
+// converts an integer to a string, adding 27 ASCII at the end
 char	*ft_itoa_pid(int n)
 {
 	int		i;
@@ -53,6 +55,7 @@ char	*ft_itoa_pid(int n)
 	return (str);
 }
 
+// converts an unsigned char(byte) to a binary representation of a string
 char	*ft_to_binary(unsigned char c)
 {
 	int		i;
@@ -70,6 +73,7 @@ char	*ft_to_binary(unsigned char c)
 	return (binary);
 }
 
+// converts a string to an integer
 int	ft_atoi(char *ptr)
 {
 	int	i;
@@ -86,6 +90,7 @@ int	ft_atoi(char *ptr)
 	return (nbr);
 }
 
+// returns the length of a string
 int	ft_strlen(char *s)
 {
 	int	count;

@@ -1,29 +1,44 @@
-NAME = minitalk
-SERVER = server
-CLIENT = client
+# Compiler and flags
 CC = cc
-LIB = ./helpers.c
 CFLAGS = -Wall -Wextra -Werror
 
+# Executables
+SERVER = server
+CLIENT = client
+
+# Source files
+LIBRARY_SRC = helpers.c
+
+# Define color codes
+GREEN = \033[32m
+RED = \033[31m
+RESET = \033[0m
+
+# Targets
 all: $(SERVER) $(CLIENT)
 
-$(NAME): all
+# Rules to build the server and client
+$(SERVER): server.c $(LIBRARY_SRC)
+	@echo "$(GREEN)Compiling $@...$(RESET)"
+	$(CC) $(CFLAGS) $^ -o $@
+	@echo "$(GREEN)$@ is ready!$(RESET)"
 
-$(SERVER):
-	$(CC) $(CFLAGS) server.c $(LIB) -o $(SERVER)
+$(CLIENT): client.c $(LIBRARY_SRC)
+	@echo "$(GREEN)Compiling $@...$(RESET)"
+	$(CC) $(CFLAGS) $^ -o $@
+	@echo "$(GREEN)$@ is ready!$(RESET)"
 
-$(CLIENT):
-	$(CC) $(CFLAGS) client.c $(LIB) -o $(CLIENT)
-
+# Clean compiled files
 clean:
+	@echo "$(RED)Cleaning...$(RESET)"
 	rm -f $(SERVER) $(CLIENT)
+	@echo "$(RED)Cleaned!$(RESET)"
 
+# Clean and rebuild everything
 fclean: clean
 
+# Clean, rebuild, and re-run everything
 re: fclean all
 
+# Declare phony targets
 .PHONY: all clean fclean re
-
-re: fclean all
-
-.PHONY: libft printf

@@ -6,7 +6,7 @@
 /*   By: irivero- <irivero-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:23:41 by irivero-          #+#    #+#             */
-/*   Updated: 2023/08/16 16:51:09 by irivero-         ###   ########.fr       */
+/*   Updated: 2023/08/16 17:18:18 by irivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	send_binary(char *binary, int bit)
 			kill(bit, SIGUSR2);
 		else if (binary[i] == '1')
 			kill(bit, SIGUSR1);
-		usleep(5000);
+		usleep(500);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: irivero- <irivero-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 10:23:41 by irivero-          #+#    #+#             */
-/*   Updated: 2023/08/15 17:41:41 by irivero-         ###   ########.fr       */
+/*   Updated: 2023/08/16 15:30:18 by irivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,7 @@ void	send_char(int pid)
 void	send_string(int signal)
 {
 	if (signal == SIGUSR1)
-	{
 		write(1, "Message received by server\n", 27);
-	}
 }
 
 int	main(int argc, char **argv)
@@ -78,10 +76,9 @@ int	main(int argc, char **argv)
 		len = ft_strlen(argv[2]);
 		while (len >= i)
 		{
-			bin = ft_to_binary(argv[2][i]);
+			bin = ft_to_binary(argv[2][i++]);
 			send_binary(bin, ft_atoi(argv[1]));
 			free(bin);
-			i++;
 		}
 	}
 	else

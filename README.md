@@ -19,7 +19,7 @@ Basic Checklist
 - Manage errors & remove all leaks
 - Deal with the holy norminette
 
-# Why the global variable on the servers file:
+## Why the global variable on the servers file:
 - Communication between Signal Handlers and Main Function:
 The main purpose of the g_int variable is to indicate whether subsequent characters received after processing the PID are part of the message or not. This is essential because the signal_handler function handles the reception of individual bits that are then assembled into characters. The state of g_int helps distinguish whether a received bit is part of the message or part of the PID.
 

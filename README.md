@@ -1,13 +1,13 @@
 # minitalk42
 Client Checklist
-  In the "client.c" file, you will...
+  In the "client.c" file...
 - Write a program (main) in which the client takes two parameters/arguments: The PID of the server to which it wants to send the message. A message.
 - Encrypt the message
 - Send the message to the server (via its PID)
 - Create a stop condition so that the server knows when it has finished receiving the message
 
 Server Checklist
-  In the "server.c" file, you will...
+  In the "server.c" file...
 - Display its PID
 - Create an endless loop so that the server can receive signals at any time
 - Receive signals
